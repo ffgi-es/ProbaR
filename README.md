@@ -6,8 +6,22 @@ with rather reduced functionality.
 
 ## Installation
 
-None at ths time
+### Requirements
+
+requires rake
 
 ## Usage
 
-None at this time
+In order to run the tests call:
+```
+$rake
+```
+
+As of writing it is possible to use
+```
+expect(a).to eq b
+```
+which will return true or false accordling
+and `it` blocks are currently halfway implemented but do not
+work directly with `expect`.
+
