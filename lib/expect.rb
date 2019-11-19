@@ -1,3 +1,5 @@
+require 'failedtest'
+
 module ProbaR
   def expect value
     Expect.new value
@@ -10,11 +12,11 @@ module ProbaR
     end
 
     def to matcher
-      matcher.compare(value)
+      raise FailedTest unless matcher.compare(value)
     end
 
     def not_to matcher
-      !matcher.compare(value)
+      raise FailedTest if matcher.compare(value)
     end
   end
 end

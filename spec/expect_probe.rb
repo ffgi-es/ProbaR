@@ -32,7 +32,6 @@ end
 begin
   expect(1).not_to DummyMatcher.new false
 rescue FailedTest
-else
   raise TestError, "#not_to should return true if matcher.compare is false"
 end
 
