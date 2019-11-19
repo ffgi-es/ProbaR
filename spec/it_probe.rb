@@ -1,5 +1,7 @@
 puts "Testing it"
-require 'probar'
+require 'it'
+
+include ProbaR
 
 class TestError < StandardError
 end

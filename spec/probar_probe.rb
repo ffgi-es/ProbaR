@@ -1,31 +1,26 @@
-puts "Testing expect"
-require "probar"
+puts "Testing Probar"
+require 'probar'
 
 class TestError < StandardError
 end
 
-class DummyMatcher
-  def initialize bool
-    @bool = bool
-  end
-
-  def compare value
-    @bool
-  end
+test = it "This is a test" do
+  expect(1).to eq 1
 end
 
-unless expect(1).to DummyMatcher.new true
-  raise TestError, "#to should return true if matcher.compare is true"
+test.run
+
+unless test.passed?
+  raise TestError, "expect(1).to eq 1 should pass"
 end
 
-if expect(1).to DummyMatcher.new false
-  raise TestError, "#to should return false if matcher.compare is false"
+test = it "This is a failing test" do
+  expect(1).to eq 2
 end
 
-unless expect(1).not_to DummyMatcher.new false
-  raise TestError, "#not_to should return true if matcher.compare is false"
+test.run
+
+if test.passed?
+  raise TestError, "expect(1).to eq 2 should fail"
 end
 
-if expect(1).not_to DummyMatcher.new true
-  raise TestError, "#not_to should return false if matcher.compare is true"
-end
