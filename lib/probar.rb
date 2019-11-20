@@ -3,12 +3,10 @@ require 'equal'
 require 'expect'
 
 module ProbaR
-  module Open
-    def describe context, &block
-      prueba = ProbaR.new context
-      prueba.instance_eval &block
-      prueba
-    end
+  def self.describe context, &block
+    prueba = ProbaR.new context
+    prueba.instance_eval &block
+    prueba
   end
 
   class ProbaR

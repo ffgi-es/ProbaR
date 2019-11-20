@@ -4,7 +4,7 @@ require 'probar'
 class TestError < StandardError
 end
 
-tests = describe "context" do 
+tests = ProbaR::describe "context" do 
   it "Passes this test" do
     expect(1).to eq 1
   end
