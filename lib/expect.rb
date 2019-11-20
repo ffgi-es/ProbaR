@@ -1,8 +1,10 @@
 require 'failedtest'
 
 module ProbaR
-  def expect value
-    Expect.new value
+  module Open
+    def expect value
+      Expect.new value
+    end
   end
 
   class Expect

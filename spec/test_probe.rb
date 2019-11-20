@@ -1,12 +1,12 @@
 puts "Testing it"
-require 'it'
+require 'test'
 
 include ProbaR
 
 class TestError < StandardError
 end
 
-test = it "message" do
+test = Test.new "message" do
   #this test passes without issue
 end
 
@@ -19,7 +19,7 @@ unless test.context == "message"
   raise TestError, "Test with out failure should have a context"
 end
 
-test = it "message" do
+test = Test.new "message" do
   raise FailedTest, "This is how it failed"
 end
 

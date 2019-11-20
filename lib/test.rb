@@ -1,10 +1,6 @@
 require 'failedtest'
 
 module ProbaR
-  def it(context, &block)
-    Test.new(context, &block)
-  end
-
   class Test
     attr_reader :context, :reason
     def initialize(context, &block)
@@ -13,12 +9,15 @@ module ProbaR
     end
 
     def run
-      @test.call
-    rescue FailedTest => failed_test
-      @reason = failed_test.message
-      @passed = false
-    else
-      @passed = true
+      begin
+        @test.call
+      rescue FailedTest => failed_test
+        @reason = failed_test.message
+        @passed = false
+      else
+        @passed = true
+      end
+      self
     end
 
     def passed?

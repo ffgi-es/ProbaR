@@ -1,6 +1,8 @@
 module ProbaR
-  def eq value
-    Equal.new value
+  module Open
+    def eq value
+      Equal.new value
+    end
   end
 
   class Equal

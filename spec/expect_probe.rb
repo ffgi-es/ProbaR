@@ -1,6 +1,7 @@
 puts "Testing expect"
 require 'expect'
 
+include ProbaR::Open
 include ProbaR
 
 class TestError < StandardError
