@@ -42,3 +42,9 @@ rescue FailedTest
 else
   raise TestError, "#not_to should return false if matcher.compare is true"
 end
+
+begin
+  expect { raise StandardError }.to DummyMatcher.new true
+rescue FailedTest
+  raise TestError, "should accept a block and pass it to the matcher"
+end

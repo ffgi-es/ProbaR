@@ -1,25 +1,27 @@
 puts "Testing equal"
 require 'equal'
 
+include ProbaR::Open
+
 class TestError < StandardError
 end
 
-test = ProbaR::Equal.new 1
+matcher = eq 1
 
-unless test.compare(1)
+unless matcher.compare(1)
   raise TestError, "1 == 1 should return true"
 end
 
-if test.compare(2)
+if matcher.compare(2)
   raise TestError, "1 == 2 should return false"
 end
 
-test = ProbaR::Equal.new "foobar"
+matcher = eq "foobar"
 
-unless test.compare("foobar")
+unless matcher.compare("foobar")
   raise TestError, '"foobar" == "foobar" should return true'
 end
 
-if test.compare("blam")
+if matcher.compare("blam")
   raise TestError, '"foobar" == "blam" should return false'
 end

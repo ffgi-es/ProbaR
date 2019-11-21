@@ -1,6 +1,7 @@
 require 'test'
 require 'equal'
 require 'expect'
+require 'raise_error'
 
 module ProbaR
   def self.describe context, &block
